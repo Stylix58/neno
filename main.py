@@ -1,18 +1,23 @@
 import discord
-from os import environ
+from discord.ext import commands
+from os import getenv
 
-client = discord.Client()
-
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+client = commands.Bot(command_prefix="n!")
+token = getenv("DISCORD_TOKEN")
 
 @client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+async def on_ready() :
+    await client.change_presence(status = discord.Status.idle, activity = discord.Game("Multi-tasks bot - n!"))
+    print("I am online")
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+@client.command()
+async def ping(ctx) :
+    """Check the ping time of the bot."""
+    await ctx.send(f"🏓 Pong with {str(round(client.latency, 2))}")
 
-client.run(environ['DISCORD_TOKEN'])
+@client.command()
+async def clear(ctx, amount=3) :
+    """Purge the indictaed amount of  messages (by default 3)."""
+    await ctx.channel.purge(limit=amount)
+
+client.run(token)
