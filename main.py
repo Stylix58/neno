@@ -25,11 +25,8 @@ async def clear(ctx, amount=3) :
 @client.command()
 async def ping_service(ctx, url):
     """Ping a url"""
+    await ctx.send(f"Pinging the URL...")
     response = requests.get(url)
-    print(int(response.status_code))
-    if response.status_code == requests.codes.ok:
-        await ctx.send(f"👍 The URL have return a good response (" + response.status_code + ")")
-    else:
-        await ctx.send(f"✖ The URL have return a bad response (" + response.status_code + ")")
+    await ctx.send(f"The URL have return " + response.status_code + " code")
 
 client.run(token)
