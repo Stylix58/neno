@@ -1,2 +1,2 @@
 # neno
-A lukti-tasks Discord bot.
+A multi-tasks Discord bot.
