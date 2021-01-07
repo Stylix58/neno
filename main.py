@@ -13,9 +13,6 @@ async def on_ready() :
     print("I am online")
 
 class General(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-    
     @commands.command()
     async def ping(ctx) :
         """Check the ping time of the bot"""
@@ -26,5 +23,5 @@ class General(commands.Cog):
         """Purge the indicated amount of messages (by default 3)"""
         await ctx.channel.purge(limit=amount)
 
-bot.add_cog(General(client))
+bot.add_cog(General())
 client.run(token)
