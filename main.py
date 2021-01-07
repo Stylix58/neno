@@ -4,7 +4,7 @@ from os import getenv
 import requests
 import time
 
-client = commands.Bot(command_prefix="n!")
+client = commands.Bot(command_prefix="ne!")
 token = getenv("DISCORD_TOKEN")
 
 @client.event
