@@ -17,7 +17,7 @@ async def ping(ctx) :
 
 @client.command()
 async def clear(ctx, amount=3) :
-    """Purge the indictaed amount of  messages (by default 3)."""
+    """Purge the indictaed amount of messages (by default 3)."""
     await ctx.channel.purge(limit=amount)
 
 client.run(token)
