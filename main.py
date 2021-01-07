@@ -9,7 +9,7 @@ token = getenv("DISCORD_TOKEN")
 
 @client.event
 async def on_ready() :
-    await client.change_presence(status = discord.Status.active, activity = discord.Game("Multi-tasks bot - n!"))
+    await client.change_presence(activity = discord.Game("Multi-tasks bot - n!"))
 
 class General(commands.Cog):
     @commands.command()
