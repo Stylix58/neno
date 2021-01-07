@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 from os import getenv
+import requests
+import time
 
 client = commands.Bot(command_prefix="n!")
 token = getenv("DISCORD_TOKEN")
@@ -21,7 +23,13 @@ async def clear(ctx, amount=3) :
     await ctx.channel.purge(limit=amount)
 
 @client.command()
-async def eval(ctx, com):
-    await ctx.send(eval(com))
+async def ping_service(ctx, url):
+    """Ping a url"""
+    response = requests.get(url)
+    print(int(response.status_code))
+    if response.status_code == requests.codes.ok:
+        await ctx.send(f"👍 The URL have return a good response (" + response.status_code + ")")
+    else:
+        await ctx.send(f"✖ The URL have return a bad response (" + response.status_code + ")")
 
 client.run(token)
