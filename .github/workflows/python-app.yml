@@ -25,4 +25,4 @@ jobs:
         # Deta micro name
         deta-name: 'neno'
         # Deta project name
-        deta-project: 'neno'
+        deta-project: 'default'
