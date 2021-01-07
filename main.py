@@ -26,12 +26,5 @@ class General(commands.Cog):
         """Purge the indicated amount of messages (by default 3)"""
         await ctx.channel.purge(limit=amount)
 
-    @commands.command()
-    async def ping_service(ctx, url):
-        """Ping a url"""
-        await ctx.send(f"Pinging the URL...")
-        response = requests.get(url)
-        await ctx.send(f"The URL have return " + response.status_code + " code")
-
-bot.add_cog(Greetings(client))
+bot.add_cog(General(client))
 client.run(token)
