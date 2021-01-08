@@ -19,17 +19,17 @@ class General(commands.Cog):
         self.bot = bot
     
     @bot.command()
-    async def ping(ctx) :
+    async def ping(self, ctx) :
         """Check the ping time of the bot"""
         await ctx.send(f"🏓 Pong with {str(round(bot.latency, 2))} seconds!")
 
     @bot.command()
-    async def clear(ctx, amount=3) :
+    async def clear(self, ctx, amount=3) :
         """Purge the indicated amount of messages (by default 3)"""
         await ctx.channel.purge(limit=amount)
 
     @bot.command()
-    async def check_url(ctx, url):
+    async def check_url(self, ctx, url):
         """Ping a URL for check his activity"""
         try:
             await ctx.send(f"The URL have return the code " + str(requests.get(url).status_code) + "!")
