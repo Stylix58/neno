@@ -2,7 +2,6 @@ import discord
 import requests
 from discord.ext import commands
 from os import getenv
-import coms
 
 client = commands.Bot(command_prefix="nn!")
 token = getenv("DISCORD_TOKEN")
