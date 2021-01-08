@@ -14,7 +14,10 @@ async def on_ready():
     await bot.change_presence(status = discord.Status.online, activity = discord.Game("Multi-Tasks Bot - nn!"))
 
 # general cog
-class General:
+class General(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+    
     @bot.command()
     async def ping(ctx) :
         """Check the ping time of the bot"""
@@ -34,7 +37,7 @@ class General:
             await ctx.send(f"We have a problem with this URL... (Try to add http:// or https:// in the URL)")
             
 # add general cog
-bot.add_cog(General())
+bot.add_cog(General(bot))
 
 # start the bot
 bot.run(token)
