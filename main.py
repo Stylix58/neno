@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands
 from os import getenv
-import requests
-import time
 
 client = commands.Bot(command_prefix="nn!")
 token = getenv("DISCORD_TOKEN")
@@ -21,5 +19,4 @@ async def clear(ctx, amount=3) :
     """Purge the indicated amount of messages (by default 3)"""
     await ctx.channel.purge(limit=amount)
 
-bot.add_cog(General())
 client.run(token)
