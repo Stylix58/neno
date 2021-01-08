@@ -28,6 +28,4 @@ async def check_url(ctx, url):
     r = requests.get(url)
     await ctx.send(f"The URL have return the code " + str(r.status_code) + "!")
 
-
-
 client.run(token)
