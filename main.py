@@ -26,12 +26,8 @@ async def clear(ctx, amount=3) :
 async def check_url(ctx, url):
     """Ping a URL for check his activity"""
     try:
-        if not "http://" or "https://" in url:
-            url = "http://" + url
-        else:
-            pass
         await ctx.send(f"The URL have return the code " + str(requests.get(url).status_code) + "!")
     except:
-        await ctx.send(f"We have a problem with this URL...")
+        await ctx.send(f"We have a problem with this URL... (Try to add http:// or https:// in the URL)")
 
 client.run(token)
