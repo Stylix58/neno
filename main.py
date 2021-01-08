@@ -12,7 +12,7 @@ async def on_ready() :
 
 # help message
 
-@bot.command(name="help", description="Returns all commands available")
+@bot.command()
 async def help(ctx):
     helptext = """
     **Neno Bot**
@@ -22,8 +22,8 @@ async def help(ctx):
     **Commands**:
     
     """
-    for command, desc in self.bot.commands:
-        helptext+=f"**{command}**: \n{desc}\n\n"
+    for command in self.bot.commands:
+        helptext+=f"**{command}**: \n{exec(command + '.__doc__')}\n\n"
     await ctx.send(helptext)
 
 # general
