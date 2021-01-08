@@ -23,13 +23,11 @@ async def clear(ctx, amount=3) :
     await ctx.channel.purge(limit=amount)
 
 @client.command()
-async def uptime(ctx, url):
-    """Ping a URL for check his uptime"""
+async def check_url(ctx, url):
+    """Ping a URL for check his activity"""
     r = requests.get(url)
-    if r.status_code == 200:
-        await ctx.send(f"⏫ The URL is up! (HTTP code: " + str(r.status_code) + ")")
-    else:
-        await ctx.send(f"⏬ The URL is down! (HTTP code: " + str(r.status_code) + ")")
+    await ctx.send(f"The URL have return the code " + str(r.status_code) + "!")
+
 
 
 client.run(token)
