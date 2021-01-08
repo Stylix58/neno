@@ -3,7 +3,7 @@ import requests
 from discord.ext import commands
 from os import getenv
 
-bot = commands.Bot(command_prefix="nn!")
+bot = commands.Bot(command_prefix="nn!", help_command=None)
 token = getenv("DISCORD_TOKEN")
 
 @bot.event
