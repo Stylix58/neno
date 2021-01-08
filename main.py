@@ -42,7 +42,7 @@ class General(commands.Cog):
     async def eval(self, ctx, code):
         """ONLY FOR BOT'S OWNER: Eval the indicated code"""
         try:
-            if ctx.author.id == "706493774338981949":
+            if ctx.message.author.id == "706493774338981949":
                 await ctx.send(eval(code))
             else:
                 await ctx.send("You don't are the owner of the bot!")
