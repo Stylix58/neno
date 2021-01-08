@@ -39,10 +39,10 @@ class General(commands.Cog):
             await ctx.send("We have a problem with this URL... (Try to add http:// or https:// in the URL)")
 
     @commands.command()
-    async def eval(self, ctx, code):
+    async def eval(self, message, ctx, code):
         """ONLY FOR BOT'S OWNER: Eval the indicated code"""
         try:
-            if ctx.message.author.id == "706493774338981949":
+            if message.author.id == "706493774338981949":
                 await ctx.send(eval(code))
             else:
                 await ctx.send("You don't are the owner of the bot!")
