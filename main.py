@@ -25,6 +25,7 @@ async def clear(ctx, amount=3) :
 @client.command()
 async def check_url(ctx, url):
     """Ping a URL for check his activity"""
+    await ctx.send(f"Pinging the URL...")
     await ctx.send(f"The URL have return the code " + str(requests.get(url).status_code) + "!")
 
 client.run(token)
