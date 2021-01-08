@@ -1,5 +1,6 @@
 import discord
 import requests
+import json
 from discord.ext import commands
 from os import getenv
 
@@ -37,17 +38,6 @@ class General(commands.Cog):
             await ctx.send("The URL have return the code " + str(requests.get(url).status_code) + "!")
         except:
             await ctx.send("We have a problem with this URL... (Try to add http:// or https:// in the URL)")
-
-    @commands.command()
-    async def eval(self, message, ctx, code):
-        """ONLY FOR BOT'S OWNER: Eval the indicated code"""
-        try:
-            if message.author.id == "706493774338981949":
-                await ctx.send(eval(code))
-            else:
-                await ctx.send("You don't are the owner of the bot!")
-        except:
-            await ctx.send("A error is happened...")
 
 # add general cog
 bot.add_cog(General(bot))
