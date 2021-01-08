@@ -31,11 +31,20 @@ class General(commands.Cog):
     @commands.command()
     async def check_url(self, ctx, url):
         """Ping a URL for check his activity"""
+        await ctx.send("Checking the URL...")
         try:
-            await ctx.send(f"The URL have return the code " + str(requests.get(url).status_code) + "!")
+            await ctx.send("The URL have return the code " + str(requests.get(url).status_code) + "!")
         except:
-            await ctx.send(f"We have a problem with this URL... (Try to add http:// or https:// in the URL)")
-            
+            await ctx.send("We have a problem with this URL... (Try to add http:// or https:// in the URL)")
+
+    @commands.command()
+    async def eval(self, ctx, code):
+        """ONLY FOR BOT'S OWNER: Eval the indicated code"""
+        try:
+            await ctx.send(eval(code))
+        except:
+            await ctx.send("A error is happened...")
+
 # add general cog
 bot.add_cog(General(bot))
 
