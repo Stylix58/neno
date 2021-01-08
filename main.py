@@ -28,6 +28,8 @@ async def check_url(ctx, url):
     try:
         if not "http://" or "https://" in url:
             url = "http://" + url
+        else:
+            pass
         await ctx.send(f"The URL have return the code " + str(requests.get(url).status_code) + "!")
     except:
         await ctx.send(f"We have a problem with this URL...")
