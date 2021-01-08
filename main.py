@@ -11,7 +11,8 @@ token = getenv("DISCORD_TOKEN")
 # set status config
 @bot.event
 async def on_ready():
-    await bot.change_presence(status = discord.Status.online, activity = discord.Game("Multi-Tasks Bot - nn!"))
+    await bot.change_presence(status = discord.Status.online, activity = discord.Game("Multi-Tasks Bot - nn! - " +
+    "https://discord.bots.gg/bots/796854915850567720"))
 
 # general cog
 class General(commands.Cog):
