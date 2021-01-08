@@ -7,21 +7,14 @@ bot = commands.Bot(command_prefix="nn!")
 token = getenv("DISCORD_TOKEN")
 
 @bot.event
-async def on_ready() :
+async def on_ready():
     await bot.change_presence(status = discord.Status.online, activity = discord.Game("Multi-Tasks Bot - nn!"))
 
 # help message
 
 @bot.command()
 async def help(ctx):
-    helptext = """
-    **Neno Bot**
-    https://cdn.discordapp.com/app-icons/796854915850567720/ac273fdf92876b8d2e7945012a482829.png
-    Neno is a multi-tasks bot made for help people.
-    
-    **Commands**:
-    
-    """
+    helptext = "**Neno Bot**\nhttps://cdn.discordapp.com/app-icons/796854915850567720/ac273fdf92876b8d2e7945012a482829.png\nNeno is a multi-tasks bot made for help people.\n\n**Commands**:\n"
     for command in self.bot.commands:
         helptext+=f"**{command}**: \n{exec(command + '.__doc__')}\n\n"
     await ctx.send(helptext)
